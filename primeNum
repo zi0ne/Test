@@ -1,0 +1,35 @@
+ // 1. prime 숫자들을 저장할 문자열 변수 선언
+ //2. 반복문을 3 ~ num까지 돌리기
+  //3. 소수는 num의 제곱근 보다 같거나 작은수로 나누어 떨어지지 않아야 한다. 
+    //1은 소수가 아니다 
+    //2는 소수다.
+    //짝수는 소수가 아니다. 
+    //4. num의 제곱근보다 같거나 작은수로 떨어지면 false / 아니면 true
+    //5. num의 제곱근을 저장할 변수를 선언해야한다. 
+
+function listPrimes(num) {
+  let isPrime = '2'; //2는 소수이고, num >= 2이기 때문 
+
+  for(let i = 3; i <= num; i+=2){ 
+    //그래서, 3 ~ num 사이의 수를 가져와서 소수인지를 판단한다. 
+    //이때, 짝수는 소수가 아니기 때문에 i는 2씩 증가시켜 홀수만 확인한다. 
+
+    let squareRoot = Math.sqrt(i); 
+    let prime = true; //3, 5, 7과 같이 낮은 수를 소수 값으로 인정시켜주기 위해 초기값 true
+
+    for(let j = 3; j <= squareRoot; j++){ 
+      //소수값 판별을 위한 반복문 
+      //제곱근과 같아질때까지 반복
+      if(i % j === 0){ 
+        prime = false;
+        //제곱근 보다 작은 수로 나누어 떨어지면 소수가 아니기 때문에 false로 판별 ! 
+      } 
+    } if(prime === true){
+      isPrime = isPrime + '-' + i;
+      //false로 걸러지지 않은 수들은 true이기 때문에 소수 저장 문자열에 추가 ! 
+    }
+  }
+
+  return isPrime;
+
+}
