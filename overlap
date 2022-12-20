@@ -1,0 +1,21 @@
+//1. 출력이 불리안 타입이라서 따로 출력 변수 설정은 필요 없음
+//2. 중복문자가 있으면 True
+//3. 첫번째 반복문 : 0 ~ 문자열의 길이까지 i
+  //4. 두번째 반복문 : 0 ~ 문자열의 길이까지 j 
+    // 조건문으로 str[i] === str[j]면 true인데, i === j continue!
+ 
+
+function hasRepeatedCharacter(str) {
+  for(let i = 0; i < str.length; i++){
+    for(let j = 0; j < str.length; j++){
+      if(i === j){
+        continue;
+      } else{
+        if(str[i]=== str[j]){
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
